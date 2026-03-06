@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="postmortem.controller.SearchController"
+    stylesheets="@../css/styles.css"
+    prefWidth="1100" prefHeight="680"
+    styleClass="root">
+
+    <!-- ── TOP NAVBAR ── -->
+    <top>
+        <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="16">
+            <padding><Insets top="0" bottom="0" left="24" right="24"/></padding>
+            <Label text="POSTMORTEM" styleClass="nav-brand"/>
+            <Label text="//" styleClass="label-muted"/>
+            <Label text="search" styleClass="nav-page"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← Dashboard" onAction="#onBack" styleClass="btn-ghost"/>
+        </HBox>
+    </top>
+
+    <!-- ── MAIN CONTENT ── -->
+    <center>
+        <VBox styleClass="main-content" spacing="0">
+            <padding><Insets top="36" bottom="28" left="28" right="28"/></padding>
+
+            <!-- Search header -->
+            <Label text="Search Entries" styleClass="page-title" style="-fx-padding: 0 0 4 0;"/>
+            <Label text="Search by keyword, filter by tag or status."
+                   styleClass="label-muted" style="-fx-padding: 0 0 24 0;"/>
+
+            <!-- Search bar row -->
+            <HBox spacing="12" alignment="CENTER_LEFT" style="-fx-padding: 0 0 16 0;">
+                <TextField
+                    fx:id="searchField"
+                    promptText="Search titles, error messages, context..."
+                    styleClass="input-field, search-input"
+                    HBox.hgrow="ALWAYS"/>
+                <Button text="SEARCH" onAction="#onSearch" styleClass="btn-primary"/>
+                <Button text="CLEAR"  onAction="#onClear"  styleClass="btn-outline"/>
+            </HBox>
+
+            <!-- Filter chips row -->
+            <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 0 0 24 0;">
+                <Label text="Filter:" styleClass="label-muted"/>
+
+                <!-- Status filters -->
+                <ToggleButton fx:id="filterAll"      text="All"      styleClass="filter-chip, filter-chip-active"/>
+                <ToggleButton fx:id="filterOpen"     text="Open"     styleClass="filter-chip"/>
+                <ToggleButton fx:id="filterResolved" text="Resolved" styleClass="filter-chip"/>
+
+                <Label text="|" styleClass="label-muted"/>
+
+                <!-- Tag filters -->
+                <ToggleButton text="#NullPointer"    styleClass="filter-chip"/>
+                <ToggleButton text="#SQLite"         styleClass="filter-chip"/>
+                <ToggleButton text="#JavaFX"         styleClass="filter-chip"/>
+                <ToggleButton text="#Authentication" styleClass="filter-chip"/>
+            </HBox>
+
+            <!-- Results count -->
+            <Label fx:id="resultsLabel" text="Showing 5 results"
+                   styleClass="label-muted" style="-fx-padding: 0 0 12 0;"/>
+
+            <!-- Results table -->
+            <TableView fx:id="resultsTable" VBox.vgrow="ALWAYS"
+                       styleClass="bug-table" onMouseClicked="#onRowClick">
+                <columns>
+                    <TableColumn fx:id="titleCol"   text="TITLE"       prefWidth="340"/>
+                    <TableColumn fx:id="statusCol"  text="STATUS"      prefWidth="110"/>
+                    <TableColumn fx:id="tagsCol"    text="TAGS"        prefWidth="200"/>
+                    <TableColumn fx:id="createdCol" text="CREATED"     prefWidth="130"/>
+                    <TableColumn fx:id="updatedCol" text="LAST UPDATE" prefWidth="130"/>
+                </columns>
+                <placeholder>
+                    <VBox alignment="CENTER" spacing="8">
+                        <Label text="No results found." styleClass="label-muted"/>
+                        <Label text="Try a different keyword or adjust your filters." styleClass="label-muted"/>
+                    </VBox>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

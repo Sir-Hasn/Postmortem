@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="postmortem.controller.BugEntryFormController"
+    stylesheets="@../css/styles.css"
+    prefWidth="1100" prefHeight="680"
+    styleClass="root">
+
+    <!-- ── TOP NAVBAR ── -->
+    <top>
+        <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="16">
+            <padding><Insets top="0" bottom="0" left="24" right="24"/></padding>
+            <Label text="POSTMORTEM" styleClass="nav-brand"/>
+            <Label text="//" styleClass="label-muted"/>
+            <Label text="new entry" styleClass="nav-page"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← Back" onAction="#onBack" styleClass="btn-ghost"/>
+        </HBox>
+    </top>
+
+    <!-- ── FORM BODY ── -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox spacing="0" styleClass="main-content">
+                <padding><Insets top="36" bottom="36" left="200" right="200"/></padding>
+
+                <Label text="Log a Bug" styleClass="page-title" style="-fx-padding: 0 0 4 0;"/>
+                <Label text="Document the error, its context, and how you solved it."
+                       styleClass="label-muted" style="-fx-padding: 0 0 36 0;"/>
+
+                <!-- Title -->
+                <Label text="TITLE *" styleClass="field-label"/>
+                <TextField fx:id="titleField"
+                           promptText="e.g. NullPointerException in LoginService"
+                           styleClass="input-field"
+                           style="-fx-padding: 6 0 24 0;"/>
+
+                <!-- Error Message -->
+                <Label text="ERROR MESSAGE" styleClass="field-label"/>
+                <TextArea fx:id="errorMessageField"
+                          promptText="Paste the full error or stack trace here..."
+                          styleClass="input-area"
+                          prefRowCount="4"
+                          wrapText="true"
+                          style="-fx-padding: 6 0 24 0;"/>
+
+                <!-- Context -->
+                <Label text="CONTEXT" styleClass="field-label"/>
+                <TextArea fx:id="contextField"
+                          promptText="What were you doing when this error occurred?"
+                          styleClass="input-area"
+                          prefRowCount="3"
+                          wrapText="true"
+                          style="-fx-padding: 6 0 24 0;"/>
+
+                <!-- Solution -->
+                <Label text="SOLUTION" styleClass="field-label"/>
+                <TextArea fx:id="solutionField"
+                          promptText="How did you fix it? Leave blank if still open."
+                          styleClass="input-area"
+                          prefRowCount="3"
+                          wrapText="true"
+                          style="-fx-padding: 6 0 24 0;"/>
+
+                <!-- Tags + Status row -->
+                <HBox spacing="24" style="-fx-padding: 0 0 24 0;">
+                    <VBox spacing="6" HBox.hgrow="ALWAYS">
+                        <Label text="TAGS" styleClass="field-label"/>
+                        <TextField fx:id="tagsField"
+                                   promptText="e.g. NullPointer, SQLite, UI  (comma-separated)"
+                                   styleClass="input-field"/>
+                    </VBox>
+                    <VBox spacing="6" minWidth="160">
+                        <Label text="STATUS" styleClass="field-label"/>
+                        <ComboBox fx:id="statusCombo"
+                                  styleClass="combo-field"
+                                  maxWidth="Infinity"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Error label -->
+                <Label fx:id="errorLabel" styleClass="label-error" text=""
+                       style="-fx-padding: 0 0 12 0;"/>
+
+                <!-- Action buttons -->
+                <HBox spacing="12" alignment="CENTER_RIGHT">
+                    <Button text="CANCEL" onAction="#onBack" styleClass="btn-outline"/>
+                    <Button text="SAVE ENTRY" onAction="#onSave" styleClass="btn-primary"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

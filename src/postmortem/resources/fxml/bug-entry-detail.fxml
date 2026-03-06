@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="postmortem.controller.BugEntryDetailController"
+    stylesheets="@../css/styles.css"
+    prefWidth="1100" prefHeight="680"
+    styleClass="root">
+
+    <!-- ── TOP NAVBAR ── -->
+    <top>
+        <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="16">
+            <padding><Insets top="0" bottom="0" left="24" right="24"/></padding>
+            <Label text="POSTMORTEM" styleClass="nav-brand"/>
+            <Label text="//" styleClass="label-muted"/>
+            <Label text="entry detail" styleClass="nav-page"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← Back" onAction="#onBack" styleClass="btn-ghost"/>
+        </HBox>
+    </top>
+
+    <!-- ── CONTENT ── -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox styleClass="main-content" spacing="0">
+                <padding><Insets top="36" bottom="36" left="200" right="200"/></padding>
+
+                <!-- Title + action row -->
+                <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding: 0 0 8 0;">
+                    <Label fx:id="titleLabel"
+                           text="NullPointerException in LoginService"
+                           styleClass="page-title"
+                           HBox.hgrow="ALWAYS" wrapText="true"/>
+                </HBox>
+
+                <!-- Meta row: status badge + timestamps -->
+                <HBox alignment="CENTER_LEFT" spacing="16" style="-fx-padding: 0 0 32 0;">
+                    <Label fx:id="statusBadge" text="OPEN" styleClass="badge-open"/>
+                    <Label fx:id="createdLabel" text="Created: 2025-03-01 09:14" styleClass="label-muted"/>
+                    <Label fx:id="resolvedLabel" text="" styleClass="label-muted"/>
+                </HBox>
+
+                <!-- Tags -->
+                <Label text="TAGS" styleClass="field-label"/>
+                <HBox spacing="8" style="-fx-padding: 6 0 28 0;">
+                    <Label text="NullPointer" styleClass="tag-chip"/>
+                    <Label text="Authentication" styleClass="tag-chip"/>
+                    <Label text="LoginService" styleClass="tag-chip"/>
+                </HBox>
+
+                <!-- Error message -->
+                <Label text="ERROR MESSAGE" styleClass="field-label"/>
+                <TextArea fx:id="errorMessageArea"
+                          styleClass="detail-area"
+                          editable="false"
+                          wrapText="true"
+                          prefRowCount="4"
+                          style="-fx-padding: 6 0 28 0;"
+                          text="java.lang.NullPointerException: Cannot invoke 'String.equals(Object)' because 'username' is null&#10;    at com.postmortem.service.AuthService.signin(AuthService.java:42)&#10;    at com.postmortem.controller.LoginController.onSignIn(LoginController.java:28)"/>
+
+                <!-- Context -->
+                <Label text="CONTEXT" styleClass="field-label"/>
+                <TextArea fx:id="contextArea"
+                          styleClass="detail-area"
+                          editable="false"
+                          wrapText="true"
+                          prefRowCount="3"
+                          style="-fx-padding: 6 0 28 0;"
+                          text="Clicking Sign In with an empty username field. The field was not validated before being passed into the service layer."/>
+
+                <!-- Solution -->
+                <Label text="SOLUTION" styleClass="field-label"/>
+                <TextArea fx:id="solutionArea"
+                          styleClass="detail-area"
+                          editable="false"
+                          wrapText="true"
+                          prefRowCount="3"
+                          style="-fx-padding: 6 0 36 0;"
+                          text="Added null and empty-string validation in LoginController.onSignIn() before calling AuthService. Also added a ValidationUtil.isBlank() helper method for reuse."/>
+
+                <!-- Divider -->
+                <Separator style="-fx-padding: 0 0 28 0;"/>
+
+                <!-- Action buttons -->
+                <HBox spacing="12" alignment="CENTER_RIGHT" style="-fx-padding: 24 0 0 0;">
+                    <Button text="DELETE" onAction="#onDelete" styleClass="btn-danger"/>
+                    <Button fx:id="toggleStatusBtn"
+                            text="MARK AS RESOLVED"
+                            onAction="#onToggleStatus"
+                            styleClass="btn-outline"/>
+                    <Button text="EDIT ENTRY" onAction="#onEdit" styleClass="btn-primary"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

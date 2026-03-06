@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="postmortem.controller.DashboardController"
+    stylesheets="@../css/styles.css"
+    prefWidth="1100" prefHeight="680"
+    styleClass="root">
+
+    <!-- ── TOP NAVBAR ── -->
+    <top>
+        <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="16">
+            <padding><Insets top="0" bottom="0" left="24" right="24"/></padding>
+            <Label text="POSTMORTEM" styleClass="nav-brand"/>
+            <Label text="//" styleClass="label-muted"/>
+            <Label text="dashboard" styleClass="nav-page"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="usernameLabel" text="user@local" styleClass="label-muted"/>
+            <Button text="logout" onAction="#onLogout" styleClass="btn-ghost"/>
+        </HBox>
+    </top>
+
+    <!-- ── LEFT SIDEBAR ── -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="200" spacing="4">
+            <padding><Insets top="24" bottom="24" left="16" right="16"/></padding>
+
+            <Label text="VIEWS" styleClass="sidebar-section-label"/>
+            <Button text="⬛  All Entries"  onAction="#onFilterAll"      styleClass="sidebar-item, sidebar-item-active" maxWidth="Infinity"/>
+            <Button text="◈  Open"          onAction="#onFilterOpen"     styleClass="sidebar-item" maxWidth="Infinity"/>
+            <Button text="✔  Resolved"      onAction="#onFilterResolved" styleClass="sidebar-item" maxWidth="Infinity"/>
+
+            <Label text="TAGS" styleClass="sidebar-section-label" style="-fx-padding: 20 0 4 0;"/>
+            <Button text="#  NullPointer"    styleClass="sidebar-item" maxWidth="Infinity"/>
+            <Button text="#  SQLite"         styleClass="sidebar-item" maxWidth="Infinity"/>
+            <Button text="#  JavaFX"         styleClass="sidebar-item" maxWidth="Infinity"/>
+            <Button text="#  Authentication" styleClass="sidebar-item" maxWidth="Infinity"/>
+            <Button text="#  UI"             styleClass="sidebar-item" maxWidth="Infinity"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="+ New Entry" onAction="#onNewEntry" styleClass="btn-primary" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <!-- ── MAIN CONTENT ── -->
+    <center>
+        <VBox styleClass="main-content" spacing="0">
+            <padding><Insets top="28" bottom="28" left="28" right="28"/></padding>
+
+            <!-- Header row -->
+            <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding: 0 0 20 0;">
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="Bug Journal" styleClass="page-title"/>
+                    <Label fx:id="entryCountLabel" text="5 entries" styleClass="label-muted"/>
+                </VBox>
+                <Button text="⌕  Search" onAction="#onGoToSearch" styleClass="btn-outline"/>
+                <Button text="+ New Entry" onAction="#onNewEntry" styleClass="btn-primary"/>
+            </HBox>
+
+            <!-- Table -->
+            <TableView fx:id="bugTable" VBox.vgrow="ALWAYS" styleClass="bug-table"
+                       onMouseClicked="#onRowClick">
+                <columns>
+                    <TableColumn fx:id="titleCol"   text="TITLE"       prefWidth="340"/>
+                    <TableColumn fx:id="statusCol"  text="STATUS"      prefWidth="110"/>
+                    <TableColumn fx:id="tagsCol"    text="TAGS"        prefWidth="200"/>
+                    <TableColumn fx:id="createdCol" text="CREATED"     prefWidth="130"/>
+                    <TableColumn fx:id="updatedCol" text="LAST UPDATE" prefWidth="130"/>
+                </columns>
+                <placeholder>
+                    <VBox alignment="CENTER" spacing="8">
+                        <Label text="No bug entries yet." styleClass="label-muted"/>
+                        <Label text="Click '+ New Entry' to log your first bug." styleClass="label-muted"/>
+                    </VBox>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
