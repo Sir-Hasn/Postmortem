@@ -16,10 +16,11 @@
             <padding><Insets top="0" bottom="0" left="24" right="24"/></padding>
             <Label text="POSTMORTEM" styleClass="nav-brand"/>
             <Label text="//" styleClass="label-muted"/>
-            <Label text="dashboard" styleClass="nav-page"/>
+            <Label text="Dashboard" styleClass="nav-page"/>
             <Region HBox.hgrow="ALWAYS"/>
-            <Label fx:id="usernameLabel" text="user@local" styleClass="label-muted"/>
-            <Button text="logout" onAction="#onLogout" styleClass="btn-ghost"/>
+            <Label fx:id="usernameLabel" text="user@local" styleClass="nav-username"/>
+            <Button text="Profile" onAction="#onGoToProfile" styleClass="btn-ghost"/>
+            <Button text="Logout" onAction="#onLogout" styleClass="btn-ghost"/>
         </HBox>
     </top>
 
@@ -34,11 +35,8 @@
             <Button text="✔  Resolved"      onAction="#onFilterResolved" styleClass="sidebar-item" maxWidth="Infinity"/>
 
             <Label text="TAGS" styleClass="sidebar-section-label" style="-fx-padding: 20 0 4 0;"/>
-            <Button text="#  NullPointer"    styleClass="sidebar-item" maxWidth="Infinity"/>
-            <Button text="#  SQLite"         styleClass="sidebar-item" maxWidth="Infinity"/>
-            <Button text="#  JavaFX"         styleClass="sidebar-item" maxWidth="Infinity"/>
-            <Button text="#  Authentication" styleClass="sidebar-item" maxWidth="Infinity"/>
-            <Button text="#  UI"             styleClass="sidebar-item" maxWidth="Infinity"/>
+            <ComboBox fx:id="tagFilterCombo" onAction="#onTagFilterChanged" maxWidth="Infinity" styleClass="combo-field"/>
+            <Label fx:id="tagSummaryLabel" text="No tags" styleClass="label-muted" wrapText="true" style="-fx-padding: 8 0 0 0;"/>
 
             <Region VBox.vgrow="ALWAYS"/>
             <Button text="+ New Entry" onAction="#onNewEntry" styleClass="btn-primary" maxWidth="Infinity"/>
@@ -57,6 +55,7 @@
                     <Label fx:id="entryCountLabel" text="5 entries" styleClass="label-muted"/>
                 </VBox>
                 <Button text="⌕  Search" onAction="#onGoToSearch" styleClass="btn-outline"/>
+                <Button text="Profile" onAction="#onGoToProfile" styleClass="btn-outline"/>
                 <Button text="+ New Entry" onAction="#onNewEntry" styleClass="btn-primary"/>
             </HBox>
 

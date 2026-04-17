@@ -16,7 +16,7 @@
             <padding><Insets top="0" bottom="0" left="24" right="24"/></padding>
             <Label text="POSTMORTEM" styleClass="nav-brand"/>
             <Label text="//" styleClass="label-muted"/>
-            <Label text="new entry" styleClass="nav-page"/>
+            <Label text="New entry" styleClass="nav-page"/>
             <Region HBox.hgrow="ALWAYS"/>
             <Button text="← Back" onAction="#onBack" styleClass="btn-ghost"/>
         </HBox>
@@ -37,7 +37,8 @@
                 <TextField fx:id="titleField"
                            promptText="e.g. NullPointerException in LoginService"
                            styleClass="input-field"
-                           style="-fx-padding: 6 0 24 0;"/>
+                           style="-fx-padding: 6 0 6 0;"/>
+                <Label fx:id="titleErrorLabel" styleClass="label-error" text="" style="-fx-padding: 0 0 12 0;"/>
 
                 <!-- Error Message -->
                 <Label text="ERROR MESSAGE" styleClass="field-label"/>
@@ -46,7 +47,8 @@
                           styleClass="input-area"
                           prefRowCount="4"
                           wrapText="true"
-                          style="-fx-padding: 6 0 24 0;"/>
+                          style="-fx-padding: 6 0 6 0;"/>
+                <Label fx:id="errorMessageErrorLabel" styleClass="label-error" text="" style="-fx-padding: 0 0 12 0;"/>
 
                 <!-- Context -->
                 <Label text="CONTEXT" styleClass="field-label"/>
@@ -55,7 +57,8 @@
                           styleClass="input-area"
                           prefRowCount="3"
                           wrapText="true"
-                          style="-fx-padding: 6 0 24 0;"/>
+                          style="-fx-padding: 6 0 6 0;"/>
+                <Label fx:id="contextErrorLabel" styleClass="label-error" text="" style="-fx-padding: 0 0 12 0;"/>
 
                 <!-- Solution -->
                 <Label text="SOLUTION" styleClass="field-label"/>
@@ -64,7 +67,8 @@
                           styleClass="input-area"
                           prefRowCount="3"
                           wrapText="true"
-                          style="-fx-padding: 6 0 24 0;"/>
+                          style="-fx-padding: 6 0 6 0;"/>
+                <Label fx:id="solutionErrorLabel" styleClass="label-error" text="" style="-fx-padding: 0 0 12 0;"/>
 
                 <!-- Tags + Status row -->
                 <HBox spacing="24" style="-fx-padding: 0 0 24 0;">
@@ -73,6 +77,7 @@
                         <TextField fx:id="tagsField"
                                    promptText="e.g. NullPointer, SQLite, UI  (comma-separated)"
                                    styleClass="input-field"/>
+                        <Label fx:id="tagsErrorLabel" styleClass="label-error" text=""/>
                     </VBox>
                     <VBox spacing="6" minWidth="160">
                         <Label text="STATUS" styleClass="field-label"/>
@@ -83,7 +88,7 @@
                 </HBox>
 
                 <!-- Error label -->
-                <Label fx:id="errorLabel" styleClass="label-error" text=""
+                  <Label fx:id="formErrorLabel" styleClass="label-error" text=""
                        style="-fx-padding: 0 0 12 0;"/>
 
                 <!-- Action buttons -->

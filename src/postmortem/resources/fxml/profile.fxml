@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="postmortem.controller.ProfileController"
+    stylesheets="@../css/styles.css"
+    prefWidth="1100" prefHeight="680"
+    styleClass="root">
+
+    <top>
+        <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="16">
+            <padding><Insets top="0" bottom="0" left="24" right="24"/></padding>
+            <Label text="POSTMORTEM" styleClass="nav-brand"/>
+            <Label text="//" styleClass="label-muted"/>
+            <Label text="Profile" styleClass="nav-page"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← Dashboard" onAction="#onBackToDashboard" styleClass="btn-ghost"/>
+            <Button text="Search" onAction="#onGoToSearch" styleClass="btn-ghost"/>
+            <Button text="Logout" onAction="#onLogout" styleClass="btn-ghost"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="profile-scroll">
+            <content>
+                <VBox styleClass="main-content, profile-content" spacing="16" alignment="TOP_CENTER">
+                    <padding><Insets top="30" bottom="30" left="20" right="20"/></padding>
+
+                    <VBox spacing="16" maxWidth="1180">
+                        <Label text="User Profile" styleClass="page-title"/>
+                        <Label text="Overview of your account and bug activity" styleClass="label-muted"/>
+
+                        <FlowPane hgap="16" vgap="16" prefWrapLength="1100">
+                            <VBox styleClass="profile-stat-card" spacing="6" prefWidth="250" minWidth="220">
+                                <Label text="USERNAME" styleClass="field-label"/>
+                                <Label fx:id="usernameValueLabel" text="-" styleClass="profile-stat-value"/>
+                            </VBox>
+                            <VBox styleClass="profile-stat-card" spacing="6" prefWidth="160" minWidth="140">
+                                <Label text="USER ID" styleClass="field-label"/>
+                                <Label fx:id="userIdValueLabel" text="-" styleClass="profile-stat-value"/>
+                            </VBox>
+                            <VBox styleClass="profile-stat-card" spacing="6" prefWidth="640" minWidth="320">
+                                <Label text="LAST UPDATED ENTRY" styleClass="field-label"/>
+                                <Label fx:id="lastUpdatedValueLabel" text="No entries yet" styleClass="profile-stat-value"/>
+                            </VBox>
+                        </FlowPane>
+
+                        <FlowPane hgap="16" vgap="16" prefWrapLength="700">
+                            <VBox styleClass="profile-stat-card" spacing="6" prefWidth="200" minWidth="180">
+                                <Label text="TOTAL ENTRIES" styleClass="field-label"/>
+                                <Label fx:id="totalEntriesValueLabel" text="0" styleClass="profile-stat-value"/>
+                            </VBox>
+                            <VBox styleClass="profile-stat-card" spacing="6" prefWidth="200" minWidth="180">
+                                <Label text="OPEN" styleClass="field-label"/>
+                                <Label fx:id="openEntriesValueLabel" text="0" styleClass="profile-stat-value"/>
+                            </VBox>
+                            <VBox styleClass="profile-stat-card" spacing="6" prefWidth="200" minWidth="180">
+                                <Label text="RESOLVED" styleClass="field-label"/>
+                                <Label fx:id="resolvedEntriesValueLabel" text="0" styleClass="profile-stat-value"/>
+                            </VBox>
+                        </FlowPane>
+
+                        <Separator style="-fx-padding: 8 0 8 0;"/>
+
+                        <Label text="Account Settings" styleClass="page-title"/>
+
+                        <FlowPane hgap="16" vgap="16" prefWrapLength="960">
+                            <VBox styleClass="profile-stat-card, profile-edit-card" spacing="10" prefWidth="360" minWidth="320">
+                                <Label text="CHANGE USERNAME" styleClass="field-label"/>
+                                <TextField fx:id="usernameEditField" promptText="Enter new username" styleClass="input-field"/>
+                                <Button text="Update Username" onAction="#onUpdateUsername" styleClass="btn-outline, profile-action-btn"/>
+                            </VBox>
+
+                            <VBox styleClass="profile-stat-card, profile-edit-card" spacing="10" prefWidth="460" minWidth="360">
+                                <Label text="CHANGE PASSWORD" styleClass="field-label"/>
+
+                                <StackPane>
+                                    <PasswordField fx:id="newPasswordField" promptText="New password" styleClass="input-field"/>
+                                    <TextField fx:id="newPasswordVisibleField" promptText="New password" styleClass="input-field"
+                                               visible="false" managed="false"/>
+                                </StackPane>
+
+                                <StackPane>
+                                    <PasswordField fx:id="confirmPasswordField" promptText="Confirm new password" styleClass="input-field"/>
+                                    <TextField fx:id="confirmPasswordVisibleField" promptText="Confirm new password" styleClass="input-field"
+                                               visible="false" managed="false"/>
+                                </StackPane>
+
+                                <CheckBox fx:id="showPasswordCheck" text="Show password" onAction="#onTogglePasswordVisibility"
+                                          styleClass="label-muted"/>
+                                <Button text="Update Password" onAction="#onUpdatePassword" styleClass="btn-outline, profile-action-btn"/>
+                            </VBox>
+                        </FlowPane>
+
+                        <Label fx:id="updateMessageLabel" text="" styleClass="label-muted"/>
+
+                        <Label text="Tip: Use Search for quick filtering and Dashboard to manage entries." styleClass="label-muted" style="-fx-padding: 10 0 0 0;"/>
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

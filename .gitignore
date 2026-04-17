@@ -28,3 +28,15 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Project Local Artifacts ###
+.build-check/
+.idea/
+*.iml
+*.class
+*.db
+*.sqlite
+*.sqlite3
+postmortem_settings.properties
+Thumbs.db
+*.log

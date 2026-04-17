@@ -16,8 +16,9 @@
             <padding><Insets top="0" bottom="0" left="24" right="24"/></padding>
             <Label text="POSTMORTEM" styleClass="nav-brand"/>
             <Label text="//" styleClass="label-muted"/>
-            <Label text="search" styleClass="nav-page"/>
+            <Label text="Search" styleClass="nav-page"/>
             <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Profile" onAction="#onGoToProfile" styleClass="btn-ghost"/>
             <Button text="← Dashboard" onAction="#onBack" styleClass="btn-ghost"/>
         </HBox>
     </top>
@@ -46,19 +47,10 @@
             <!-- Filter chips row -->
             <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 0 0 24 0;">
                 <Label text="Filter:" styleClass="label-muted"/>
-
-                <!-- Status filters -->
-                <ToggleButton fx:id="filterAll"      text="All"      styleClass="filter-chip, filter-chip-active"/>
-                <ToggleButton fx:id="filterOpen"     text="Open"     styleClass="filter-chip"/>
-                <ToggleButton fx:id="filterResolved" text="Resolved" styleClass="filter-chip"/>
-
-                <Label text="|" styleClass="label-muted"/>
-
-                <!-- Tag filters -->
-                <ToggleButton text="#NullPointer"    styleClass="filter-chip"/>
-                <ToggleButton text="#SQLite"         styleClass="filter-chip"/>
-                <ToggleButton text="#JavaFX"         styleClass="filter-chip"/>
-                <ToggleButton text="#Authentication" styleClass="filter-chip"/>
+                <Label text="Status" styleClass="label-muted"/>
+                <ComboBox fx:id="statusFilterCombo" onAction="#onFiltersChanged" prefWidth="150" styleClass="combo-field"/>
+                <Label text="Tag" styleClass="label-muted"/>
+                <ComboBox fx:id="tagFilterCombo" onAction="#onFiltersChanged" prefWidth="220" styleClass="combo-field"/>
             </HBox>
 
             <!-- Results count -->

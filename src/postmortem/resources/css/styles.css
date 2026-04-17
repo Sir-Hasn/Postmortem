@@ -7,49 +7,49 @@
 .root {
     -fx-background-color: #080B09;
     -fx-font-family: "JetBrains Mono", monospace;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 /* ── TYPOGRAPHY ──────────────────────────────── */
 .brand-title {
     -fx-text-fill: #00FF88;
-    -fx-font-size: 28px;
+    -fx-font-size: 32px;
     -fx-font-weight: 700;
     -fx-letter-spacing: 4px;
 }
 .brand-subtitle {
     -fx-text-fill: #3D7A57;
-    -fx-font-size: 13px;
+    -fx-font-size: 14px;
 }
 .tagline {
     -fx-text-fill: #2A5C3F;
-    -fx-font-size: 13px;
+    -fx-font-size: 14px;
     -fx-padding: 2 0 2 0;
 }
 .page-title {
     -fx-text-fill: #E0E0E0;
-    -fx-font-size: 22px;
+    -fx-font-size: 25px;
     -fx-font-weight: 600;
 }
 .form-heading {
     -fx-text-fill: #E0E0E0;
-    -fx-font-size: 20px;
+    -fx-font-size: 24px;
     -fx-font-weight: 600;
 }
 .field-label {
     -fx-text-fill: #3D7A57;
-    -fx-font-size: 11px;
+    -fx-font-size: 12px;
     -fx-font-weight: 700;
     -fx-letter-spacing: 1px;
     -fx-padding: 0 0 4 0;
 }
 .label-muted {
     -fx-text-fill: #4A6655;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
 }
 .label-error {
     -fx-text-fill: #FF4C4C;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
 }
 
 /* ── LOGIN PANELS ────────────────────────────── */
@@ -72,13 +72,25 @@
 }
 .nav-brand {
     -fx-text-fill: #00FF88;
-    -fx-font-size: 14px;
+    -fx-font-size: 16px;
     -fx-font-weight: 700;
     -fx-letter-spacing: 2px;
 }
 .nav-page {
     -fx-text-fill: #4A6655;
-    -fx-font-size: 13px;
+    -fx-font-size: 14px;
+}
+
+.nav-username {
+    -fx-text-fill: #00FF88;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-background-color: #0F1A12;
+    -fx-border-color: #1E2B1F;
+    -fx-border-width: 1px;
+    -fx-border-radius: 14px;
+    -fx-background-radius: 14px;
+    -fx-padding: 4 12 4 12;
 }
 
 /* ── SIDEBAR ─────────────────────────────────── */
@@ -89,7 +101,7 @@
 }
 .sidebar-section-label {
     -fx-text-fill: #2A5C3F;
-    -fx-font-size: 10px;
+    -fx-font-size: 11px;
     -fx-font-weight: 700;
     -fx-letter-spacing: 1px;
     -fx-padding: 8 0 4 8;
@@ -102,7 +114,7 @@
     -fx-border-color: transparent;
     -fx-background-radius: 4px;
     -fx-cursor: hand;
-    -fx-font-size: 12px;
+    -fx-font-size: 13px;
 }
 .sidebar-item:hover {
     -fx-background-color: #0F1A12;
@@ -139,7 +151,7 @@
     -fx-highlight-fill: #00FF8830;
     -fx-padding: 10 12 10 12;
     -fx-font-family: "JetBrains Mono", monospace;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 .input-field:focused, .input-area:focused {
     -fx-border-color: #00FF88;
@@ -171,7 +183,7 @@
 }
 
 .search-input {
-    -fx-font-size: 14px;
+    -fx-font-size: 16px;
     -fx-padding: 12 14 12 14;
 }
 
@@ -182,10 +194,12 @@
     -fx-border-radius: 4px;
     -fx-text-fill: #C8E6C9;
     -fx-font-family: "JetBrains Mono", monospace;
+    -fx-font-size: 15px;
 }
 .combo-field .list-cell {
     -fx-background-color: #0F1510;
     -fx-text-fill: #C8E6C9;
+    -fx-font-size: 15px;
 }
 .combo-field:focused {
     -fx-border-color: #00FF88;
@@ -197,7 +211,7 @@
     -fx-text-fill: #080B09;
     -fx-font-weight: 700;
     -fx-font-family: "JetBrains Mono", monospace;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-letter-spacing: 1px;
     -fx-border-radius: 4px;
     -fx-background-radius: 4px;
@@ -215,7 +229,7 @@
     -fx-border-radius: 4px;
     -fx-background-radius: 4px;
     -fx-font-family: "JetBrains Mono", monospace;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-padding: 10 20 10 20;
     -fx-cursor: hand;
 }
@@ -228,7 +242,7 @@
     -fx-text-fill: #4A6655;
     -fx-border-color: transparent;
     -fx-font-family: "JetBrains Mono", monospace;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-padding: 8 14 8 14;
     -fx-cursor: hand;
 }
@@ -242,7 +256,7 @@
     -fx-text-fill: #00FF88;
     -fx-border-color: transparent;
     -fx-font-family: "JetBrains Mono", monospace;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-padding: 0;
     -fx-cursor: hand;
 }
@@ -257,13 +271,47 @@
     -fx-border-radius: 4px;
     -fx-background-radius: 4px;
     -fx-font-family: "JetBrains Mono", monospace;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-padding: 10 20 10 20;
     -fx-cursor: hand;
 }
 .btn-danger:hover {
     -fx-border-color: #FF4C4C;
     -fx-background-color: #FF4C4C15;
+}
+
+.btn-window {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4A6655;
+    -fx-border-color: #1E2B1F;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 2 8 2 8;
+    -fx-font-size: 11px;
+    -fx-cursor: hand;
+}
+
+.btn-window:hover {
+    -fx-background-color: #0F1A12;
+    -fx-text-fill: #00FF88;
+}
+
+.btn-window-close {
+    -fx-background-color: transparent;
+    -fx-text-fill: #FF8080;
+    -fx-border-color: #3A1515;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 2 8 2 8;
+    -fx-font-size: 11px;
+    -fx-cursor: hand;
+}
+
+.btn-window-close:hover {
+    -fx-background-color: #FF4C4C30;
+    -fx-text-fill: #FF4C4C;
 }
 
 /* ── FILTER CHIPS ────────────────────────────── */
@@ -339,7 +387,7 @@
 }
 .bug-table .column-header .label {
     -fx-text-fill: #2A5C3F;
-    -fx-font-size: 11px;
+    -fx-font-size: 12px;
     -fx-font-weight: 700;
     -fx-letter-spacing: 1px;
     -fx-alignment: CENTER_LEFT;
@@ -363,8 +411,45 @@
 }
 .bug-table .table-cell {
     -fx-text-fill: #C8E6C9;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-padding: 10 12 10 12;
+}
+
+.profile-stat-card {
+    -fx-background-color: #0F1510;
+    -fx-border-color: #1E2B1F;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 14 16 14 16;
+}
+
+.profile-stat-value {
+    -fx-text-fill: #C8E6C9;
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+}
+
+.profile-content {
+    -fx-background-color: #080B09;
+}
+
+.profile-scroll {
+    -fx-background-color: #080B09;
+    -fx-background: #080B09;
+    -fx-border-color: transparent;
+}
+
+.profile-scroll > .viewport {
+    -fx-background-color: #080B09;
+}
+
+.profile-edit-card {
+    -fx-padding: 16 16 16 16;
+}
+
+.profile-action-btn {
+    -fx-min-width: 170px;
 }
 
 /* ── SEPARATOR ───────────────────────────────── */
